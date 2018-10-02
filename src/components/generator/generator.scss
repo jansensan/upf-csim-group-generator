@@ -1,0 +1,31 @@
+@import "../../../node_modules/jansensan-stylesheets/src/sass/jansensan-stylesheet.scss";
+
+
+.generator {
+  label {
+    margin-right: 8px;
+  }
+  .num-groups-input {
+    width: 36px;
+    margin-right: 8px;
+    padding: 8px;
+    background-color: $nearWhite;
+    border: 1px solid $paleGrey;
+    font-family: $ffSansSerif;
+    font-size: $mainFontSize;
+    color: $nearBlack;
+
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+  }
+
+  button {
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 9px;
+
+    &.btn-generate {
+      margin-right: 16px;
+    }
+  }
+}

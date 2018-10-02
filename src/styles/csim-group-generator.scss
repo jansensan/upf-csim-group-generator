@@ -1,0 +1,16 @@
+@import "../../node_modules/jansensan-stylesheets/src/sass/jansensan-stylesheet.scss";
+
+
+.react-app-container {
+  min-height: 400px;
+}
+
+section {
+  display: block;
+
+  hr {
+    border: 1px solid $paleGrey;
+    width: 50%;
+    margin: 32px auto 64px;
+  }
+}

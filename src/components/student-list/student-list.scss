@@ -1,0 +1,41 @@
+@import "../../../node_modules/jansensan-stylesheets/src/sass/common/variables.scss";
+
+.student-list {
+  table {
+    width: 100%;
+    border: 1px solid $nearBlack;
+
+    tr {
+      &:nth-child(2n) {
+        background-color: $nearWhite;
+      }
+    }
+
+    th {
+      border-right: 1px solid $nearBlack;
+      padding: 8px;
+      background-color: $nearBlack;
+      color: #fff;
+      text-align: center;
+
+      &.first-name {
+        width: 15%;
+      }
+      &.last-name {
+        width: 20%;
+      }
+      &.phone {
+        width: 20%;
+      }
+      &.email {
+        width: 20%;
+      }
+      &.country-code {
+        width: 15%;
+      }
+      &.country-flag {
+        width: 10%;
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@import "../../../node_modules/jansensan-stylesheets/src/sass/common/variables.scss";
+
+.table-row {
+  td {
+    border-right: 1px solid $paleGrey;
+    padding: 8px;
+
+    &.first-name {
+      width: 15%;
+      text-align: left;
+    }
+    &.last-name {
+      width: 20%;
+      text-align: left;
+    }
+    &.phone {
+      width: 20%;
+      text-align: left;
+    }
+    &.email {
+      width: 20%;
+      text-align: left;
+    }
+    &.country-code {
+      width: 15%;
+      text-align: center;
+    }
+    &.country-flag {
+      width: 10%;
+      border-right: none;
+      text-align: center;
+    }
+  }
+}
