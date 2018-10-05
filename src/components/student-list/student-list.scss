@@ -1,9 +1,10 @@
 @import "../../../node_modules/jansensan-stylesheets/src/sass/common/variables.scss";
 
 .student-list {
-  table {
+  .students-table {
     width: 100%;
     border: 1px solid $nearBlack;
+    margin-bottom: 32px;
 
     tr {
       &:nth-child(2n) {
@@ -37,5 +38,10 @@
         width: 10%;
       }
     }
+  }
+
+  .download-list-btn {
+    padding-top: 10px;
+    padding-bottom: 9px;
   }
 }

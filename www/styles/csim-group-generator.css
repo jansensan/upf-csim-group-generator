@@ -403,3 +403,8 @@ section {
     border: 1px solid #b5b5b5;
     width: 50%;
     margin: 32px auto 64px; }
+
+button {
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 9px; }
