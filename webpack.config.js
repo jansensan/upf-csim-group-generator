@@ -3,11 +3,6 @@ const webpack = require('webpack');
 
 module.exports = {
   context: path.resolve(__dirname, './src'),
-  devServer: {
-    contentBase: path.resolve(__dirname, './www'),
-    host: 'csim-group-generator.local',
-    port: 6464
-  },
   entry: {
     index: './main.jsx'
   },
