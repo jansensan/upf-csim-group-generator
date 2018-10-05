@@ -25,6 +25,7 @@
     while ($row = $result->fetch_assoc()) {
       $row_index++;
       $json .= '{' .
+        '"profilePic": "' . $row['profile_pic'] . '",' .
         '"firstName": "' . utf8_encode($row['first_name']) . '",' .
         '"lastName": "' . utf8_encode($row['last_name']) . '",' .
         '"phone": "' . $row['phone'] . '",' .

@@ -24,6 +24,7 @@ export default class StudentList extends Component {
           cellSpacing="0" cellPadding="0"
         >
           <tr>
+            <th className="profile-pic"></th>
             <th className="first-name">First Name</th>
             <th className="last-name">Last Name</th>
             <th className="country-flag">Flag</th>
@@ -32,6 +33,7 @@ export default class StudentList extends Component {
             this.props.students.map(
               (student) =>
                 <TableRow
+                  profilePic={student.profilePic}
                   firstName={student.firstName}
                   lastName={student.lastName}
                   country={student.country}

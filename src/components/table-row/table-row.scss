@@ -5,6 +5,10 @@
     border-right: 1px solid $paleGrey;
     padding: 8px;
 
+    &.profile-pic {
+      width: 5%;
+      text-align: center;
+    }
     &.first-name {
       width: 45%;
       text-align: left;
@@ -14,7 +18,7 @@
       text-align: left;
     }
     &.country-flag {
-      width: 10%;
+      width: 5%;
       border-right: none;
       text-align: center;
     }
