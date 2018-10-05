@@ -65,10 +65,8 @@ export default class StudentList extends Component {
   // event handlers
   onDownloadButtonClicked(event) {
     let csv = this.convertToCSV(this.props.students);
-
     let response = prompt('Please enter the password');
-
-    if (response === 'csim') {
+    if (response === 'CSIM2019') {
       window.open("data:text/csv;charset=utf-8," + escape(csv));
     } else {
       alert('Password incorrect. Please contact an admin for assistance.');
