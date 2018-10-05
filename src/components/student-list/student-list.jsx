@@ -26,9 +26,6 @@ export default class StudentList extends Component {
           <tr>
             <th className="first-name">First Name</th>
             <th className="last-name">Last Name</th>
-            <th className="phone">Phone</th>
-            <th className="email">Email</th>
-            <th className="country-code">Country</th>
             <th className="country-flag">Flag</th>
           </tr>
           {
@@ -37,8 +34,6 @@ export default class StudentList extends Component {
                 <TableRow
                   firstName={student.firstName}
                   lastName={student.lastName}
-                  phone={student.phone}
-                  email={student.email}
                   country={student.country}
                 ></TableRow>
             )
