@@ -15,6 +15,7 @@ gulp.task('build', build);
 // tasks definitions
 function build() {
   runSequence(
-    'styles'
+    'styles:compile',
+    'styles:copy-normalize'
   );
 }

@@ -1,5 +1,6 @@
 module.exports = function () {
   var projectDir = process.env.PWD = process.cwd() + '/',
+    nodeModules = projectDir + 'node_modules/',
     srcDir = 'src/',
 
   distDir = 'www/',
@@ -8,7 +9,10 @@ module.exports = function () {
 
   var pipelines = {
     styles: {
-      src: [srcDir + 'styles/csim-group-generator.scss'],
+      src: {
+        normalize: nodeModules + 'normalize.css/normalize.css',
+        generator: srcDir + 'styles/csim-group-generator.scss',
+      },
       dest: distStylesDir
     },
   };
