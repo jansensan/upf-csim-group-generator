@@ -31,6 +31,6 @@ export default class TableRow extends Component {
 
   // methods definition
   getProfilePicURL(filename) {
-    return '/images/' + filename;
+    return './images/' + filename;
   }
 }
