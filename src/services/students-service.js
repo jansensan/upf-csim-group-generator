@@ -1,6 +1,7 @@
 // public api
 let StudentsService = {
-  load: load
+  load: load,
+  formatNameForId: formatNameForId,
 };
 export default StudentsService;
 
@@ -16,4 +17,16 @@ function load() {
     xhr.onerror = () => reject(xhr.statusText);
     xhr.send();
   });
+}
+
+function formatNameForId(firstName, lastName) {
+  let fName = firstName
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+  let lName = lastName
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[\u0020]/g, '');
+
+  return fName.charAt(0).toLowerCase() + lName;
 }

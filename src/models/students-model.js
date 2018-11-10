@@ -20,6 +20,9 @@ class StudentsModel {
 
           // order array by product names
           this.data = _.orderBy(this.data, ['firstName'], ['asc']);
+          this.data.forEach(student => {
+            student.isIncluded = true;
+          });
 
           // resolve promise
           this.hasFetched = true;
