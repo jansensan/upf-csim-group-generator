@@ -23,23 +23,32 @@ export default class StudentList extends Component {
           className="students-table"
           cellSpacing="0" cellPadding="0"
         >
-          <tr>
-            <th className="profile-pic"></th>
-            <th className="first-name">First Name</th>
-            <th className="last-name">Last Name</th>
-            <th className="country-flag">Flag</th>
-          </tr>
-          {
-            this.props.students.map(
-              (student) =>
-                <TableRow
-                  profilePic={student.profilePic}
-                  firstName={student.firstName}
-                  lastName={student.lastName}
-                  country={student.country}
-                ></TableRow>
-            )
-          }
+          <tbody>
+            <tr>
+              {
+                (this.props.hasIncludeOption) &&
+                <th className="include-in-shuffle">Include</th>
+              }
+              <th className="profile-pic"></th>
+              <th className="first-name">First Name</th>
+              <th className="last-name">Last Name</th>
+              <th className="country-flag">Flag</th>
+            </tr>
+            {
+              this.props.students.map(
+                (student, i) =>
+                  <TableRow
+                    key={i}
+                    studentModel={student}
+                    profilePic={student.profilePic}
+                    firstName={student.firstName}
+                    lastName={student.lastName}
+                    country={student.country}
+                    hasIncludeOption={this.props.hasIncludeOption}
+                  ></TableRow>
+              )
+            }
+          </tbody>
         </table>
         <button
           id="downloadListButton"
@@ -49,6 +58,7 @@ export default class StudentList extends Component {
       </div>
     );
   }
+
 
   // methods definitions
   convertToCSV(json) {

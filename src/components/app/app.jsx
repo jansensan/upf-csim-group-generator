@@ -44,9 +44,10 @@ export default class App extends Component {
         <section>
           <h2>All Students</h2>
           {
-            this.state.model.hasFetched ?
+            (this.state.model.hasFetched) ?
             <StudentList
               students={this.state.students}
+              hasIncludeOption={true}
             ></StudentList>
             : <p>Fetching students from server...</p>
           }

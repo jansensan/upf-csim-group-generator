@@ -60,7 +60,7 @@ export default class Generator extends Component {
               {
                 this.state.groups.map(
                   (group, i) =>
-                    <div>
+                    <div key={i}>
                       <h3>Group {i + 1}</h3>
                       <StudentList
                         students={group}
@@ -79,8 +79,13 @@ export default class Generator extends Component {
 
   // methods definitions
   generateGroup() {
+    let shufflable = _.filter(
+      studentModel.data,
+      {isIncluded: true}
+    );
+
     // shuffle students list
-    let shuffled = _.shuffle(studentModel.data);
+    let shuffled = _.shuffle(shufflable);
 
     // create empty groups
     let groups = [];

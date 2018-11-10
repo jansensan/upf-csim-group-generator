@@ -5,6 +5,15 @@
     border-right: 1px solid $paleGrey;
     padding: 8px;
 
+    &.include-in-shuffle {
+      text-align: center;
+
+      input[type=checkbox] {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
     &.profile-pic {
       width: 5%;
       text-align: center;
