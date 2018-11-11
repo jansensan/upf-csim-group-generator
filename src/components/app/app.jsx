@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import studentModel from '../../models/students-model';
 
 // components
+import AddStudentForm from '../add-student-form/add-student-form.jsx';
 import Generator from '../generator/generator.jsx';
 import StudentList from '../student-list/student-list.jsx';
 
@@ -13,23 +14,11 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      model: studentModel,
-      students: []
+      isComponentMounted: false
     };
 
-    this.state.model
-      .fetch()
-      .then((response) => {
-        this.setState({
-          students: this.state.model.data
-        });
-      })
-      .catch(error => {
-        throw new Error(
-          'Error initializing the application: ' +
-          'Unable to fetch students data from server'
-        );
-      });
+    studentModel.updated.add(this.onModelUpdated, this);
+    studentModel.fetch();
   }
 
   // react methods definitions
@@ -44,16 +33,38 @@ export default class App extends Component {
         <section>
           <h2>All Students</h2>
           {
-            (this.state.model.hasFetched) ?
-            <StudentList
-              students={this.state.students}
-              hasIncludeOption={true}
-            ></StudentList>
-            : <p>Fetching students from server...</p>
+            (studentModel.hasFetched) ?
+            <div>
+              <StudentList
+                students={studentModel.data}
+                hasIncludeOption={true}
+              ></StudentList>
+              <h3>Add a student</h3>
+              <p>Is someone missing? Add them here with the following form:</p>
+              <AddStudentForm></AddStudentForm>
+            </div>
+            :
+            <p>Fetching students from server...</p>
           }
           <hr/>
         </section>
       </div>
     );
+  }
+
+  componentDidMount() {
+    this.setState({
+      isComponentMounted: true
+    });
+  }
+
+
+  // methods definitions
+  onModelUpdated() {
+    if (!this.state.isComponentMounted) {
+      return;
+    }
+
+    this.forceUpdate();
   }
 }

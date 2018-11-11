@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import signals from 'signals';
 
 // services
 import StudentsService from '../services/students-service.js';
@@ -6,8 +7,12 @@ import StudentsService from '../services/students-service.js';
 
 class StudentsModel {
   constructor() {
+    // properties
     this.hasFetched = false;
     this.data = [];
+
+    // signals
+    this.updated = new signals.Signal();
   }
 
   fetch() {
@@ -24,8 +29,10 @@ class StudentsModel {
             student.isIncluded = true;
           });
 
-          // resolve promise
           this.hasFetched = true;
+          this.updated.dispatch();
+
+          // resolve promise
           resolve();
         })
         .catch((error) => {
@@ -36,6 +43,11 @@ class StudentsModel {
           });
         })
     });
+  }
+
+  add(value) {
+    this.data.push(value);
+    this.updated.dispatch();
   }
 }
 

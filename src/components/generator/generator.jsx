@@ -32,7 +32,7 @@ export default class Generator extends Component {
     return (
       <div className="generator">
         {
-          studentModel.hasFetched ?
+          (studentModel.hasFetched) ?
           <div>
             <div>
               <label

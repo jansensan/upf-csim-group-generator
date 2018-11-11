@@ -1,0 +1,19 @@
+.add-student-form {
+  position: relative;
+  margin-bottom: 32px;
+
+  form {
+    display: inline-block;
+  }
+  label {
+    margin-right: 16px;
+  }
+  input {
+    margin-right: 24px;
+  }
+  .btn-add {
+    padding-top: 10px;
+    padding-bottom: 9px;
+    display: inline-block;
+  }
+}

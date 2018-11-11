@@ -10,6 +10,8 @@ require('./table-row.scss');
 export default class TableRow extends Component {
   constructor(props) {
     super(props);
+
+    this.state = this.props.studentModel;
   }
 
   // react methods definitions
@@ -23,7 +25,7 @@ export default class TableRow extends Component {
               type="checkbox"
               id={this.getId()}
               name={this.getId()}
-              checked={this.props.studentModel.isIncluded}
+              checked={this.state.isIncluded}
               onChange={this.onCheckboxUpdated.bind(this)}
             />
           </td>
@@ -36,9 +38,9 @@ export default class TableRow extends Component {
             />
           </a>
         </td>
-        <td className="first-name">{this.props.firstName}</td>
-        <td className="last-name">{this.props.lastName}</td>
-        <td className="country-flag">{FlagService.getFlag(this.props.country)}</td>
+        <td className="first-name">{this.state.firstName}</td>
+        <td className="last-name">{this.state.lastName}</td>
+        <td className="country-flag">{FlagService.getFlag(this.state.country)}</td>
       </tr>
     );
   }
@@ -46,20 +48,20 @@ export default class TableRow extends Component {
 
   // methods definitions
   getProfilePicURL() {
-    return './images/' + this.props.profilePic;
+    return './images/' + this.state.profilePic;
   }
 
   getId() {
     return StudentsService.formatNameForId(
-      this.props.firstName,
-      this.props.lastName
+      this.state.firstName,
+      this.state.lastName
     );
   }
 
 
 
   onCheckboxUpdated() {
-    this.props.studentModel.isIncluded = !this.props.studentModel.isIncluded;
+    this.state.isIncluded = !this.state.isIncluded;
     this.forceUpdate();
   }
 }

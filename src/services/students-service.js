@@ -13,8 +13,17 @@ function load() {
   return new Promise((resolve, reject) => {
     let xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
-    xhr.onload = () => resolve(xhr.responseText);
-    xhr.onerror = () => reject(xhr.statusText);
+    xhr.timeout = 5000;
+    xhr.url = url;
+    xhr.onload = () => {
+      resolve(xhr.responseText);
+    };
+    xhr.onerror = () => {
+      reject(xhr.statusText);
+    };
+    xhr.ontimeout = () => {
+      reject(xhr.statusText);
+    };
     xhr.send();
   });
 }
